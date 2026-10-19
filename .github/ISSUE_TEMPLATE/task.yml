@@ -1,0 +1,51 @@
+name: Task
+description: A single, reviewable unit of work (one issue = one PR).
+title: "[task]: "
+labels: ["type:task"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why this task exists and how it fits the phase/masterplan.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What to do
+      description: The change, kept small enough to review in about 30 minutes.
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: Files, paths or artefacts this task produces.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Checklist that must all be true to close this issue.
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Claude Code prompt
+      description: The plan-mode prompt to drive this task. Keep changes inside the named paths.
+      render: text
+    validations:
+      required: false
+  - type: input
+    id: depends
+    attributes:
+      label: Depends on
+      description: Issue numbers that must finish first (e.g. "#12, #15").
+    validations:
+      required: false

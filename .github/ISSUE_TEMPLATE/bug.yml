@@ -1,0 +1,57 @@
+name: Bug report
+description: Something does not work as expected.
+title: "[bug]: "
+labels: ["type:bug"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Website
+        - Dashboard
+        - Control plane / backend
+        - AI gateway
+        - Fleet memory
+        - Orchestrator
+        - Edge agent
+        - Robot adapter (Go2 / G1 / drone / car)
+        - Firmware
+        - Infra / network
+        - Brand / assets
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: robot
+    attributes:
+      label: Robot and version
+      description: Robot id / class and firmware or software version (if a robot is involved).
+      placeholder: "qrc-go2-01 · QUADRUPED_GO2 · agent v0.3.1"
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+      description: What you expected, and what actually happened.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and evidence
+      description: Logs, screenshots or video. Remove any secrets or personal data first.
+      render: text
+    validations:
+      required: false

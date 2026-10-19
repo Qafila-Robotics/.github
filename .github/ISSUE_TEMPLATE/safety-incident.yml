@@ -1,0 +1,58 @@
+name: Safety incident
+description: A safety incident or near miss involving a robot. Stop the robots first, then file this.
+title: "[safety]: "
+labels: ["type:safety", "area:safety"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Stop the robots first.
+        Before filling this in: press **Stop all** / the physical e-stop, make the area safe and
+        account for everyone. File this report only once the scene is safe.
+  - type: input
+    id: when
+    attributes:
+      label: Date, time and site
+      placeholder: "2026-10-19 14:30 · Lab netted area"
+    validations:
+      required: true
+  - type: input
+    id: robots
+    attributes:
+      label: Robots involved
+      placeholder: "qrc-g1-01 (G1), qrc-go2-02 (Go2)"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Plain sequence of events, before / during / after.
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Outcome
+      options:
+        - Near miss (no contact, no damage)
+        - Equipment damage only
+        - Minor injury (first aid)
+        - Serious injury (medical treatment)
+    validations:
+      required: true
+  - type: textarea
+    id: stop
+    attributes:
+      label: Did the stop work, and how long did it take?
+      description: Which stop was used (deadman, link-loss, Stop all, e-stop), did it work, and how long until the robot was safe?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Logs, video, photos, audit entries. Remove personal data where possible.
+      render: text
+    validations:
+      required: false
